@@ -393,7 +393,7 @@ class ConfusionMatrix:
         return (tp[:-1], fp[:-1]) if self.task == "detect" else (tp, fp)  # remove background class if task=detect
 
     @TryExcept("WARNING ⚠️ ConfusionMatrix plot failure")
-    @plt_settings()
+    @plt_settings({"font.size": 38})
     def plot(self, normalize=True, save_dir="", names=(), on_plot=None):
         """
         Plot the confusion matrix using seaborn and save it to a file.
@@ -411,7 +411,7 @@ class ConfusionMatrix:
 
         fig, ax = plt.subplots(1, 1, figsize=(12, 9), tight_layout=True)
         nc, nn = self.nc, len(names)  # number of classes, names
-        seaborn.set_theme(font_scale=1.0 if nc < 50 else 0.8)  # for label size
+        seaborn.set_theme(font_scale=3 if nc < 50 else 0.8)  # for label size
         labels = (0 < nn < 99) and (nn == nc)  # apply names to ticklabels
         ticklabels = (list(names) + ["background"]) if labels else "auto"
         with warnings.catch_warnings():
@@ -420,7 +420,7 @@ class ConfusionMatrix:
                 array,
                 ax=ax,
                 annot=nc < 30,
-                annot_kws={"size": 8},
+                annot_kws={"size": 28},
                 cmap="Blues",
                 fmt=".2f" if normalize else ".0f",
                 square=True,
