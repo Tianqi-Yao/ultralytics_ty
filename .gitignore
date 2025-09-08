@@ -174,3 +174,19 @@ pnnx*
 
 # calibration image
 calibration_*.npy
+
+models/**/output
+
+models/**/data
+
+models/**/archives
+
+models/runs_yolov11_cls/cropped_*
+
+models/SAHI/*
+
+!models/SAHI/*.ipynb
+
+!models/SAHI/*.py
+
+data/*

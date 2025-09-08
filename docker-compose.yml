@@ -1,0 +1,17 @@
+services:
+  ultralytics_ty:
+    image: yaotianqi6666/ty_ultralytics_cuda12.8_env:latest
+    container_name: ultralytics_ty
+    working_dir: /workspace
+    ipc: host
+    gpus: all
+    volumes:
+      - .:/workspace
+    ports:
+      - "8888:8888"
+    environment:
+      - PYTHONPATH=/workspace
+    # 第一次启动时自动做一次开发安装（检测到源码才执行）
+#    command: >
+#      bash -lc "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token="
+#    restart: unless-stopped
