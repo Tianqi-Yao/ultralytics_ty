@@ -34,8 +34,14 @@ if __name__ == "__main__":
     for i, d in enumerate(chosen_dirs):
         print(f"- {i+1}. {d}")
 
+    # 如果有的文件夹的raw_data里面没有图片，就移除
+    chosen_dirs = [d for d in chosen_dirs if (d.parent / "raw_data").exists() and any((d.parent / "raw_data").glob("*.jpg"))]
+    if not chosen_dirs:
+        print(f"没有找到包含图片的 *{end_with} 目录")
+        exit(0)
+
 # %% [markdown]
-# # 0202
+# # 0202 运行YOLO分割模型，给被分割的子图数据标记掩码
 # 
 
 # %%
@@ -130,7 +136,6 @@ for d in chosen_dirs:
         gc.collect()
 
     print(f"✅ Done. Saved to: {src_dir}")
-
 
 # %% [markdown]
 # # 0203

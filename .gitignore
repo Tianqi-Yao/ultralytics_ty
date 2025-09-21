@@ -175,7 +175,7 @@ pnnx*
 # calibration image
 calibration_*.npy
 
-models/**/output
+models/**/output*
 
 models/**/data
 
@@ -190,3 +190,9 @@ models/SAHI/*
 !models/SAHI/*.py
 
 data/*
+
+models/**/cropped_objects*
+
+models/**/datasets*
+
+models/runs_yolov11_det/crops_by_points
