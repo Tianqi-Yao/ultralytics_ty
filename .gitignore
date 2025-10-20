@@ -196,3 +196,7 @@ models/**/cropped_objects*
 models/**/datasets*
 
 models/runs_yolov11_det/crops_by_points
+
+models/runs_yolov11/demo_data2/*
+models/runs_yolov11/pred*
+
