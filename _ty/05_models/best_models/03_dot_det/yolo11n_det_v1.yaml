@@ -1,0 +1,16 @@
+type: yolo11
+name: yolo11n_det-r20240930
+provider: Ultralytics
+display_name: YOLO11n-Detection_swd_v1
+
+# 检测模型（.onnx）：请换成你的检测权重路径
+model_path: /mnt/D/01_Projects/01_swd/02_code/pipeline/ultralytics_ty/models/best_model/yolo11n-det-best_v1.onnx
+
+# 阈值
+conf_threshold: 0.5
+iou_threshold: 0.6
+
+# 类别（检测只需类名列表）
+classes:
+  - p
+

@@ -1,0 +1,6 @@
+pipeline:
+  input:
+    # 根目录：脚本会在这里向下 search_depth 层查找含 raw_data 的目录
+    root_directory: "/workspace/_ty/01_data/01_16mp_2024_pipeline_data"
+    # root_directory: "/workspace/_ty/01_data/01_16mp_2024_pipeline_data"
+    search_depth: 1

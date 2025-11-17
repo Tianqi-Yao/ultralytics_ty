@@ -1,0 +1,14 @@
+type: yolo11_pose
+name: yolo11s_pose-r20240930
+provider: Ultralytics
+display_name: YOLO11s-Pose
+model_path: /mnt/D/01_Projects/01_swd/02_code/pipeline/ultralytics_ty/models/best_model/yolo11n-pose-best_v1.onnx
+conf_threshold: 0.5
+iou_threshold: 0.6
+kpt_threshold: 0.25
+has_visible: true
+classes:
+  swd:
+    - h
+    - lp
+    - rp

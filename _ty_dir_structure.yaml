@@ -1,0 +1,42 @@
+base_dir: "./_ty"
+
+structure:
+  # 数据区
+  - "01_data/01_custom/images"
+  - "01_data/01_custom/labels"
+  
+  # 配置区
+  - "02_configs"
+  
+  # 代码区
+  - "03_code/01_prototypes"
+  - "03_code/02_notebooks"
+  - "03_code/03_scripts"
+  
+  # 实验区
+  - "04_experiments/baseline"
+  - "04_experiments/augmentation"
+  - "04_experiments/tuning/v1"
+  - "04_experiments/tuning/v2"
+  
+  # 模型区
+  - "05_models/checkpoints"
+  - "05_models/best_models"
+  - "05_models/exported"
+  
+  # 结果区
+  - "06_results/metrics"
+  - "06_results/plots"
+  - "06_results/samples"
+  
+  # 日志区
+  - "07_logs"
+  
+  # 文档区
+  - "08_docs/drafts"
+  - "08_docs/graphs"
+  - "08_docs/reports"
+
+# 需要创建的空文件
+files:
+  - "CONTEXT.md"

@@ -175,28 +175,29 @@ pnnx*
 # calibration image
 calibration_*.npy
 
-models/**/output*
+_ty/models/**/output*
 
-models/**/data
+_ty/models/**/data
 
-models/**/archives
+_ty/models/**/archives
 
-models/runs_yolov11_cls/cropped_*
+_ty/models/runs_yolov11_cls/cropped_*
 
-models/SAHI/*
+_ty/models/SAHI/*
 
-!models/SAHI/*.ipynb
+!_ty/models/SAHI/*.ipynb
 
-!models/SAHI/*.py
+!_ty/models/SAHI/*.py
 
-data/*
+_ty/01_data/*
 
-models/**/cropped_objects*
+_ty/models/**/cropped_objects*
 
-models/**/datasets*
+_ty/models/**/datasets*
 
-models/runs_yolov11_det/crops_by_points
+_ty/models/runs_yolov11_det/crops_by_points
 
-models/runs_yolov11/demo_data2/*
-models/runs_yolov11/pred*
+_ty/models/runs_yolov11/demo_data2/*
+_ty/models/runs_yolov11/pred*
 
+_ty/models/runs_yolov11/data_*

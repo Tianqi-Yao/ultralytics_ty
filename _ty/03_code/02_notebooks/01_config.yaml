@@ -1,0 +1,47 @@
+processing:
+  # 瓦片大小与重叠比例
+  tile_height: 640
+  tile_width: 640
+  overlap_ratio: 0.2
+
+yolo:
+  # YOLO 模型路径
+  model_path: "/workspace/_ty/05_models/best_models/01_swd_seg/yolo11n-seg-best.pt"
+
+  # 推理相关参数
+  image_size: 640
+  confidence_threshold: 0.1
+  iou_threshold: 0.45
+  device: 0          # GPU ID，CPU 就写 "cpu" 并在代码里把类型从 int 改 str
+  batch_size: 3
+  retina_masks: true
+  workers: 2
+  verbose: false
+  save_results: false
+
+pipeline:
+  input:
+    # 根目录：脚本会在这里向下 search_depth 层查找含 raw_data 的目录
+    root_directory: "/workspace/_ty/01_data/00_test/00_try"
+    # root_directory: "/workspace/_ty/01_data/01_16mp_2024_pipeline_data"
+    search_depth: 1
+
+  output:
+    # COCO 结果会保存在：root_directory / directory_name / file_name
+    directory_name: "output"
+    file_name: "swd_seg_results_coco.json"
+
+  logging:
+    file_name: "swd_seg_results_coco.log"
+    force: true
+    level: "INFO"
+
+categories:
+  - id: 1
+    name: "swd"
+    supercategory: "object"
+
+  # 之后如果有其他类，直接在下面追加：
+  # - id: 2
+  #   name: "small_fly"
+  #   supercategory: "object"
