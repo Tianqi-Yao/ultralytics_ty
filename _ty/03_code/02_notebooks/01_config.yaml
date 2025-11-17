@@ -10,7 +10,7 @@ yolo:
 
   # 推理相关参数
   image_size: 640
-  confidence_threshold: 0.1
+  confidence_threshold: 0.85
   iou_threshold: 0.45
   device: 0          # GPU ID，CPU 就写 "cpu" 并在代码里把类型从 int 改 str
   batch_size: 3
@@ -22,7 +22,7 @@ yolo:
 pipeline:
   input:
     # 根目录：脚本会在这里向下 search_depth 层查找含 raw_data 的目录
-    root_directory: "/workspace/_ty/01_data/00_test/00_try"
+    root_directory: "/workspace/_ty/01_data/00_test/01_try"
     # root_directory: "/workspace/_ty/01_data/01_16mp_2024_pipeline_data"
     search_depth: 1
 
