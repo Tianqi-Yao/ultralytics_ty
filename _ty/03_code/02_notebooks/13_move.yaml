@@ -1,0 +1,32 @@
+# config_copy.yaml
+source_root: /media/tianqi/16tb/SWD/2024_SWD_data/Middle_result/run_v7
+target_root: /home/tianqi/zhoulab/Insect_Trap_Project/Result_16mp
+
+# 需要处理的子文件夹名（批量文件夹）
+dataset_dirs:
+  - 'jeff_0613-0624_04_ok'
+  # - 'jeff_0624-0702_01_ok'
+  # - 'jeff_0730-0813_01_ok'
+  - 'lloyd_0715-0729_04_ok'
+  - 'ms1_0605-0621_40_ok'
+  - 'ms1_0710-0726_36_ok'
+  - 'ms1_0726-0809_11_ok'
+  - 'ms1_0809-0823_34_ok'
+  - 'ms2_0621-0710_01_ok'
+  - 'ms2_0726-0809_13_ok'
+  - 'ms2_0809-0823_10_ok'
+  - 'sw1_0605-0613_07_ok'
+  - 'sw1_0711-0725_03_ok'
+  - 'sw2_0725-0808_02_ok'
+  - 'sw2_0808-0823_04_ok'
+
+# 在每个 dataset 里要拷贝的“相对路径文件列表”
+# 以后如果要多拷贝几个文件，直接在这里继续加
+files:
+  - raw_data_sliced_merge/pose_and_det_v1/11_statistics_filtered_annotations_counts.csv
+  - raw_data_sliced_merge/pose_and_det_v1/12_statistics_with_full_time.csv
+  - raw_data_sliced_merge/pose_and_det_v1/swd_time_series_plot.html
+
+# 可选：目标里的文件名规则（默认保持原名）
+# 这里简单写一个策略：只保留文件名，不保留中间的子目录
+keep_subdirs: false

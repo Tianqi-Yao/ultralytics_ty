@@ -201,3 +201,4 @@ _ty/models/runs_yolov11/demo_data2/*
 _ty/models/runs_yolov11/pred*
 
 _ty/models/runs_yolov11/data_*
+_ty/models/runs_yolov11/raw_data/*
