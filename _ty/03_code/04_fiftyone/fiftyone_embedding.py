@@ -15,28 +15,10 @@ embeddings_fields = ["emb_clip", "emb_dinov2", "emb_resnet50", "emb_mobilenet"]
 
 datasets = fo.list_datasets()
 
-datasets = ['sw1_0605-0613_07_ok_v2',
-            'ms2_0726-0809_13_ok_v2',
-            'ms1_0809-0823_34_ok_v2',
-            'ms1_0710-0726_36_ok_v2']
-
-datasets = [  'ms1_0710-0726_36_ok_v2_part_001',
-            'ms1_0710-0726_36_ok_v2_part_002',
-            'ms1_0710-0726_36_ok_v2_part_003',
-            'ms1_0710-0726_36_ok_v2_part_004',
-            'ms1_0710-0726_36_ok_v2_part_005',
-            'ms1_0710-0726_36_ok_v2_part_006',
-            'ms1_0710-0726_36_ok_v2_part_007',
-            'ms1_0710-0726_36_ok_v2_part_008',
-            'ms1_0710-0726_36_ok_v2_part_009',
-            'ms1_0710-0726_36_ok_v2_part_010',
-            'ms1_0710-0726_36_ok_v2_part_011',
-            'ms1_0710-0726_36_ok_v2_part_012',
-            'ms1_0710-0726_36_ok_v2_part_013',
-            'ms1_0710-0726_36_ok_v2_part_014',
-            'ms1_0710-0726_36_ok_v2_part_015',
-            'ms1_0710-0726_36_ok_v2_part_016',
-            'ms1_0710-0726_36_ok_v2_part_017',]
+datasets = [  'ms1_0710-0726_36_ok_v22',
+ 'ms1_0809-0823_34_ok_v22',
+ 'ms2_0726-0809_13_ok_v22',
+ 'sw1_0605-0613_07_ok_v22']
 
 # 清理已有的 brain runs，避免冲突
 for dataset_name in datasets:

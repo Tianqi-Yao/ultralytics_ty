@@ -203,5 +203,12 @@ _ty/models/runs_yolov11/pred*
 _ty/models/runs_yolov11/data_*
 _ty/models/runs_yolov11/raw_data/*
 _ty/03_code/04_fiftyone/backup/*
-_ty/03_code/05_train_model/yolo/raw_data/*
+_ty/03_code/05_train_model/yolo/raw_data*
 _ty/03_code/05_train_model/yolo/data/*
+_ty/03_code/05_train_model/yolo/output*
+_ty/03_code/05_train_model/yolo_cls/raw_data*
+_ty/03_code/05_train_model/yolo_cls/data/*
+_ty/03_code/05_train_model/yolo_cls/output*
+_ty/03_code/05_train_model/yolo_obb/data*
+_ty/03_code/05_train_model/yolo_obb/output*
+_ty/03_code/05_train_model/yolo_obb/raw_data*

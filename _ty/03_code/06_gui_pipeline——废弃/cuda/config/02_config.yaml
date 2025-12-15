@@ -1,0 +1,35 @@
+processing:
+  # 至少支持这几个：
+  # 'NMS' / 'NMM' / 'GREEDYNMM' / 'LSNMS'
+  method: "NMS"
+
+  # 'IOU' 或 'IOS'
+  overlap_metric: "IOS"
+
+  # 判断重复的阈值
+  overlap_threshold: 0.5
+
+  # 是否跨类别去重（true 时忽略 category_id）
+  class_agnostic: false
+
+pipeline:
+  root_dir_path_list:
+    - /workspace/_ty/01_data/00_test/00_try
+    - /workspace/_ty/01_data/01_16mp_2024_pipeline_data/sw2_0808-0823_04_ok
+    - /workspace/_ty/01_data/01_16mp_2024_pipeline_data/ms1_0726-0809_11_ok
+    - /workspace/_ty/01_data/01_16mp_2024_pipeline_data/ms2_0809-0823_10_ok
+    - /workspace/_ty/01_data/01_16mp_2024_pipeline_data/lloyd_0715-0729_04_ok
+    - /workspace/_ty/01_data/01_16mp_2024_pipeline_data/jeff_0613-0624_04_ok
+    - /workspace/_ty/01_data/01_16mp_2024_pipeline_data/ms1_0605-0621_40_ok
+    - /workspace/_ty/01_data/01_16mp_2024_pipeline_data/sw1_0711-0725_03_ok
+    - /workspace/_ty/01_data/01_16mp_2024_pipeline_data/ms1_0710-0726_36_ok
+    - /workspace/_ty/01_data/01_16mp_2024_pipeline_data/ms1_0809-0823_34_ok
+    - /workspace/_ty/01_data/01_16mp_2024_pipeline_data/sw1_0605-0613_07_ok
+    - /workspace/_ty/01_data/01_16mp_2024_pipeline_data/ms2_0726-0809_13_ok
+  input_json_subpath: "output/01_swd_seg_results_coco.json"
+  output_json_subpath: "output/02_combined_annotations_dedup.json"
+logging:
+  level: "Info"
+  log_to_file: true
+  log_file_name: "02_dedup.log"
+  overwrite_log_file: true

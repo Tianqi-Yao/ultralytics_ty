@@ -1,0 +1,30 @@
+processing:
+  tile_height: 640
+  tile_width: 640
+  overlap_ratio: 0.2
+yolo:
+  model_path: /workspace/_ty/02_models/best_models/01_swd_seg/model_v2_4datasets_noAug_seed0_yolo11s_data_split_custom_8.pt
+  image_size: 640
+  confidence_threshold: 0.2
+  iou_threshold: 0.45
+  device: 0
+  batch_size: 3
+  retina_masks: true
+  workers: 2
+  verbose: false
+  save_results: false
+pipeline:
+  input:
+    root_directory: /workspace/_ty/01_data/01_16mp_2024_pipeline_data_v3
+    search_depth: 1
+  output:
+    directory_name: output
+    file_name: 01_swd_seg_results_coco.json
+  logging:
+    log_file_name: output/01_swd_seg_results_coco.log
+    force: true
+    level: INFO
+categories:
+- id: 1
+  name: swd
+  supercategory: object

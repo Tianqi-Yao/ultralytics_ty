@@ -7,12 +7,13 @@ processing:
 yolo:
   # YOLO 模型路径
   # model_path: "/workspace/_ty/05_models/best_models/01_swd_seg/yolo11n-seg-best.pt"
-  model_path: "/workspace/_ty/02_models/best_models/01_swd_seg/new_best_v1.pt"
+  # model_path: "/workspace/_ty/02_models/best_models/04_swd_hbb/model_v2_4datasets_noAug_seed0_yolo11s_data_split_custom_8.pt"
+  model_path: "/workspace/_ty/02_models/best_models/05_swd_obb/yolo11s-obb.yaml_data_split_0.8_0.2_0.0_16.pt"
 
   # 推理相关参数
   image_size: 640
   confidence_threshold: 0.2
-  iou_threshold: 0.45
+  iou_threshold: 0.7
   device: 0          # GPU ID，CPU 就写 "cpu" 并在代码里把类型从 int 改 str
   batch_size: 3
   retina_masks: true
@@ -24,7 +25,7 @@ pipeline:
   input:
     # 根目录：脚本会在这里向下 search_depth 层查找含 raw_data 的目录
     # root_directory: "/workspace/_ty/01_data/00_test/00_try"
-    root_directory: "/workspace/_ty/01_data/01_16mp_2024_pipeline_data"
+    root_directory: "/workspace/_ty/01_data/01_16mp_2024_pipeline_data_obb_v1"
     search_depth: 1
 
   output:
@@ -33,7 +34,7 @@ pipeline:
     file_name: "01_swd_seg_results_coco.json"
 
   logging:
-    file_name: "output/01_swd_seg_results_coco.log"
+    log_file_name: "output/01_swd_seg_results_coco.log"
     force: true
     level: "INFO"
 
