@@ -212,3 +212,5 @@ _ty/03_code/05_train_model/yolo_cls/output*
 _ty/03_code/05_train_model/yolo_obb/data*
 _ty/03_code/05_train_model/yolo_obb/output*
 _ty/03_code/05_train_model/yolo_obb/raw_data*
+_ty/03_code/04_fiftyone/backup_v2/*
+_ty/03_code/05_train_model/yolo/data*
