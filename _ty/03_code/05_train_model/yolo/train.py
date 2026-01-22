@@ -4,7 +4,7 @@ import wandb
 wandb.login(key="957096cc564005d5332d45e2da6a75838e1cc9ac")
 
 # ===== project name =====
-PROJECT_NAME = "swd_model_v4_7datasets_null_image"
+PROJECT_NAME = "swd_model_v4_7datasets_null_image_full"
 runPath = "/workspace/_ty/03_code/05_train_model/yolo/yaml/"
 # ========================
 
@@ -21,11 +21,11 @@ yamlFileNames = [  # 数据集 yaml 文件名（不要写后缀 .yaml）
     # "custom7_v3-13_7_34-36_40-10_11",
     # "custom7_v4-36_40_10_11-7_34-13",
     # "custom7_v5-36_40-13_7_34-10_11",
-    "custom7null_cv1_ms2_0809-0823_10_ok",
-    # "custom7null_cv2_ms1_0710-0726_36_ok",
-    # "custom7null_cv3_ms1_0809-0823_34_ok",
-    # "custom7null_cv4_ms1_0605-0621_40_ok",
-    # "custom7null_cv5_ms2_0726-0809_13_ok",
+    # "custom7null_cv1_ms2_0809-0823_10_ok",
+    "custom7null_cv2_ms1_0710-0726_36_ok",
+    "custom7null_cv3_ms1_0809-0823_34_ok",
+    "custom7null_cv4_ms1_0605-0621_40_ok",
+    "custom7null_cv5_ms2_0726-0809_13_ok",
 ]
 batchSizes = [
     4, 

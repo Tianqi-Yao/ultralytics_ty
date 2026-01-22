@@ -9,7 +9,7 @@
 #     └── coco8-seg ← downloads here (1 MB)
 
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
-path: /workspace/_ty/03_code/05_train_model/yolo/data_v2_20pct # dataset root dir
+path: /workspace/_ty/03_code/05_train_model/yolo/data_v4_full # dataset root dir
 train: [ms1_0710-0726_36_ok, ms2_0726-0809_13_ok, sw1_0605-0613_07_ok, ms1_0605-0621_40_ok, ms2_0809-0823_10_ok] # train images (relative to 'path') 4 images
 val: ms1_0809-0823_34_ok # val images (relative to 'path') 4 images
 test: ms1_0726-0809_11_ok # test images (optional)
