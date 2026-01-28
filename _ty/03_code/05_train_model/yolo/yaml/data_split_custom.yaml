@@ -12,7 +12,7 @@
 path: /workspace/_ty/03_code/05_train_model/yolo/data_custom/custom # dataset root dir
 train: train # train images (relative to 'path') 4 images
 val: val # val images (relative to 'path') 4 images
-test: test # test images (optional)
+test: /workspace/_ty/03_code/05_train_model/yolo/data_v2_20pct/ms1_0726-0809_11_ok # test images (optional)
 
 # Classes
 names:
