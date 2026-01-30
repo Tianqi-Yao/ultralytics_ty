@@ -5,7 +5,7 @@ wandb.login(key="957096cc564005d5332d45e2da6a75838e1cc9ac")
 
 # ===== project name =====
 PROJECT_NAME = "swd_model_v5_nullImagesAdded_final"
-runPath = "/workspace/_ty/00_pipeline/02_TrainingModel/02_yaml/"
+runPath = "/workspace/_ty/00_pipeline/00_current/02_TrainingModel/02_yaml/"
 # ========================
 
 # ==== 你需要手动填写的列表 ====

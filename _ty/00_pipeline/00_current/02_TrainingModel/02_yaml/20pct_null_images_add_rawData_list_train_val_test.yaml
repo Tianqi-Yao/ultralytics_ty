@@ -1,4 +1,4 @@
-path: /workspace/_ty/00_pipeline/02_TrainingModel/01_data/04_20pct_null_images_add_rawData_list_train_val_test
+path: /workspace/_ty/00_pipeline/00_current/02_TrainingModel/01_data/04_20pct_null_images_add_rawData_list_train_val_test
 train: images/train
 val: images/val
 
