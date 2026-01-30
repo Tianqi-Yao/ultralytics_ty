@@ -218,3 +218,4 @@ _ty/03_code/04_fiftyone/_eval_exports*
 **/temp*
 _ty/00_pipeline/99_archive/*
 _ty/00_pipeline/02_TrainingModel/01_data/*
+_ty/00_pipeline/00_current/02_TrainingModel/01_data/*
