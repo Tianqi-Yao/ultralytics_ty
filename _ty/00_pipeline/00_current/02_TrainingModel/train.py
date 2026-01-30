@@ -142,6 +142,9 @@ for yamlFileName in yamlFileNames:
     yamlPath = runPath + yamlFileName + ".yaml"
     for modelFile in models:
         for batch in batchSizes:
+            if batch == 8 and modelFile == "yolo11n.pt":
+                print("跳过已完成的组合")
+                continue
             print(f"\n🚀 Training model={modelFile}, dataset={yamlFileName}, batch={batch}")
 
             model = YOLO(modelFile)
@@ -191,11 +194,11 @@ for yamlFileName in yamlFileNames:
                 )
 
                 # 测试集验证
-                model.val(
-                    data=yamlPath,
-                    split="test",
-                    name=f"{modelFile}_{yamlFileName}_{batch}_test",
-                )
+                # model.val(
+                #     data=yamlPath,
+                #     split="test",
+                #     name=f"{modelFile}_{yamlFileName}_{batch}_test",
+                # )
             except RuntimeError as e:
                 if "CUDA out of memory" in str(e):
                     print(f"⚠️  跳过: model={modelFile}, yaml={yamlFileName}, batch={batch} —— 显存不足")

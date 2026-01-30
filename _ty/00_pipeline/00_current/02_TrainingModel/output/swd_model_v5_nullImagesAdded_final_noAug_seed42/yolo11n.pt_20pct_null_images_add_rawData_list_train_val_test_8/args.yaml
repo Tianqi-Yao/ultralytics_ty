@@ -1,7 +1,7 @@
 task: detect
 mode: train
 model: yolo11n.pt
-data: /workspace/_ty/00_pipeline/02_TrainingModel/02_yaml/20pct_null_images_add_rawData_list_train_val_test.yaml
+data: /workspace/_ty/00_pipeline/00_current/02_TrainingModel/02_yaml/20pct_null_images_add_rawData_list_train_val_test.yaml
 epochs: 1000
 time: null
 patience: 100
