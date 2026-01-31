@@ -1,31 +1,40 @@
 # ty_fo_tools/__init__.py
-"""
-ty_fo_tools: Tianqi's FiftyOne/COCO/YOLO utility toolbox.
 
-Usage:
-    import ty_fo_tools as ty
-"""
-
-from .fiftyone.export_view import export_view_to_coco
-from .cocoData.tiles import (
-    TileSpec,
-    export_labeled_tiles_from_coco,
-    export_null_images_tiles_from_coco,
+# =====plotly utilities=====
+# ty_fo_tools/__init__.py
+from .plotly.data_prep import (
+    add_fo_url,
+    ensure_event_cols,
+    ensure_time_cols,
+    find_per_image_csvs,
+    infer_event_label,
+    safe_name,
 )
-from .yoloData.build_trainning_dataset import YoloPair, build_yolo_null_images_dataset
-from .cocoData.nms import _bbox_iou, coco_nms_json
+
+from .plotly.html_components import (
+    make_day_summary_html,
+    make_top_table_html,
+)
+
+from .plotly.plotting_strategies import (
+    PlottingStrategy,
+    SchemeAGtTpStrategy,
+    # 如果以后有更多策略，也可以在这里导出
+    # AllPredictionsStrategy,
+    # TpOnlyStrategy,
+)
+
 
 __all__ = [
-    # fo_export
-    "export_view_to_coco",
-    # coco_tiles
-    "TileSpec",
-    "export_labeled_tiles_from_coco",
-    "export_null_images_tiles_from_coco",
-    # yolo_sample
-    "YoloPair",
-    "build_yolo_null_images_dataset",
-    # coco_nms
-    "_bbox_iou",
-    "coco_nms_json",
+    # =====plotly utilities=====
+    "add_fo_url",
+    "ensure_event_cols",
+    "ensure_time_cols",
+    "find_per_image_csvs",
+    "infer_event_label",
+    "safe_name",
+    "make_day_summary_html",
+    "make_top_table_html",
+    "PlottingStrategy",
+    "SchemeAGtTpStrategy",
 ]

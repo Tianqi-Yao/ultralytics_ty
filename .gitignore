@@ -180,12 +180,16 @@ calibration_*.npy
 # Model outputs & runs
 ############################
 _ty/**/output*
-_ty/**/*data*
-_ty/**/*archive*
 _ty/**/demo*
 _ty/**/datasets*
 _ty/**/cropped_objects*
 _ty/**/*temp*
-_ty/**/*backup*
-_ty/**/*export*
-_ty/**/*pred*
+_ty/**/_eval_export*
+_ty/**/01_data
+_ty/**/data*
+_ty/**/raw_data*
+_ty/**/runs_*
+_ty/03_code/04_fiftyone/backup*
+_ty/00_pipeline/99_archive/*
+_ty/03_code/03_train_model/yolo11_hbb_old/archives
+_ty/03_code/03_train_model/yolo11_hbb_old/pred*
