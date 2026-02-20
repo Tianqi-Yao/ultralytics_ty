@@ -1,11 +1,14 @@
 # ty_fo_tools/fo_export.py
 from __future__ import annotations
 
+import logging
 from pathlib import Path
 from typing import Type, Union
 
 import fiftyone.types as fot
 import fiftyone.core.view as fov
+
+logger = logging.getLogger(__name__)
 
 
 def export_view_to_coco(
@@ -53,13 +56,18 @@ def export_view_to_coco(
     data_path = export_dir / data_dirname
     labels_path = export_dir / labels_filename
 
-    view.export(
-        export_dir=str(export_dir),
-        dataset_type=dataset_type,
-        label_field=label_field,
-        export_media=export_media,
-        data_path=str(data_path),
-        labels_path=str(labels_path),
-    )
+    try:
+        view.export(
+            export_dir=str(export_dir),
+            dataset_type=dataset_type,
+            label_field=label_field,
+            export_media=export_media,
+            data_path=str(data_path),
+            labels_path=str(labels_path),
+        )
+    except Exception as e:
+        logger.error(f"FiftyOne 导出失败 export_dir={export_dir}: {e}")
+        raise
 
+    logger.info(f"export_view_to_coco 完成: {export_dir}")
     return export_dir

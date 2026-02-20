@@ -43,7 +43,49 @@ _ty_/
 
 - 优先使用 `IPython.display`（`display()`、`display(HTML())`、`display(df)` 等）展示数据，不用 `print()` 展示结构化内容
 - 每个 cell 职责单一，从上到下线性执行，无跳跃依赖
-- 不在 cell 里写超过 30 行的函数，超出则抽到独立 `.py` 文件里 import
+- 不在 cell 里写超过 30 行的**函数定义**，超出则抽到独立 `.py` 文件里 import
+  （注意：30 行限制针对**函数体**，cell 内的顺序执行代码不受此限制）
+
+---
+
+## Python 包创建规范
+
+### 触发条件
+
+当 notebook 里需要抽取的函数超过 1 个 `.py` 文件时，建包而不是散放文件。
+
+### 包命名规范
+
+- 格式：`ty_<目的>_tools/`（与所在目录功能对应）
+- 示例：`ty_eval_tools/`、`ty_plot_tools/`、`ty_run_tools/`
+
+### 包结构
+
+```
+ty_xxx_tools/
+  ├── __init__.py       # 统一导出 + __all__ 列表（必须）
+  ├── parse_utils.py    # 解析类工具（按数据流阶段命名）
+  ├── fo_export.py      # FiftyOne 导出类
+  └── gt_eval.py        # 评估类
+```
+
+### `__init__.py` 写法（必须包含 `__all__`）
+
+```python
+from .parse_utils import parse_dt_focus
+from .fo_export import export_per_image_and_detection_dfs
+
+__all__ = [
+    "parse_dt_focus",
+    "export_per_image_and_detection_dfs",
+]
+```
+
+### 私有辅助函数命名
+
+模块内部辅助函数用 `_` 前缀，只暴露对外接口：
+- `_safe_dets()` — 内部用，不导出
+- `export_per_image_and_detection_dfs()` — 对外接口，写入 `__all__`
 
 ---
 
@@ -55,12 +97,21 @@ _ty_/
 
 ```python
 import logging
+try:
+    import ipynbname
+    _nb_name = ipynbname.name()
+except Exception:
+    _nb_name = "LOG_"
+try:    OUTPUT_PATH
+except NameError:
+    OUTPUT_PATH = f"."
 
+log_file_name = f"{OUTPUT_PATH}/{_nb_name}_{DATASET_NAME}.log"
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler(f"{current_file_name}.log", encoding="utf-8"),
+        logging.FileHandler(log_file_name, encoding="utf-8"),
         logging.StreamHandler()           # 同时输出到 notebook/终端
     ]
 )
@@ -90,6 +141,22 @@ except SpecificError as e:
 ```
 
 - 禁止裸写 `except Exception` 不加任何处理
+- **严禁 `except: pass` 和 `except Exception: pass`（裸 pass 静默吞异常）**，必须配套 `logger.warning()` 或 `logger.error()`，哪怕只是跳过也要留下日志记录：
+
+```python
+# 错误写法（禁止）
+try:
+    result = parse_filename(p)
+except:
+    pass
+
+# 正确写法
+try:
+    result = parse_filename(p)
+except Exception as e:
+    logger.warning(f"文件名解析失败，跳过: {p.name} ({e})")
+```
+
 - 不需要强制处理的地方不要画蛇添足加 try/except
 
 ---
@@ -107,6 +174,17 @@ except SpecificError as e:
 - 代码从上到下像读文章一样流畅，避免跳跃式阅读
 - 优先使用 early return 展平嵌套逻辑
 - 一个函数只做一件事，控制在 30 行以内
+
+### functools.partial 绑定配置
+
+当函数需要接收配置参数（如 `YEAR`、阈值），使用 `partial` 绑定，而非在函数内部读取全局变量：
+
+```python
+from functools import partial
+
+parse_dt_fn = partial(parse_dt_focus, year=YEAR)   # 正确：绑定配置
+# 而非在函数内部直接读 YEAR 全局变量
+```
 
 ### 命名规范
 

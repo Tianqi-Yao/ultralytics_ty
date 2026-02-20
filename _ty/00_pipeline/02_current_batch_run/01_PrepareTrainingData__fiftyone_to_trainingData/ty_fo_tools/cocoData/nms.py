@@ -2,9 +2,12 @@
 from __future__ import annotations
 
 import json
+import logging
 from copy import deepcopy
 from pathlib import Path
 from typing import Dict, List, Tuple
+
+logger = logging.getLogger(__name__)
 
 
 def _bbox_iou(b1, b2) -> float:
@@ -100,4 +103,6 @@ def coco_nms_json(
 
     output_json.write_text(json.dumps(new_coco, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    return {"before": len(annotations), "after": len(new_annotations)}
+    result = {"before": len(annotations), "after": len(new_annotations)}
+    logger.info(f"coco_nms_json 完成: {result}, 输出: {output_json}")
+    return result

@@ -1,11 +1,14 @@
 # ty_fo_tools/yolo_sample.py
 from __future__ import annotations
 
+import logging
+import random
+import shutil
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional
-import random
-import shutil
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -117,4 +120,5 @@ def build_yolo_null_images_dataset(
         if copy_labels and p.lbl is not None:
             shutil.copy2(p.lbl, out_labels / p.lbl.name)
 
+    logger.info(f"build_yolo_null_images_dataset 完成: 从 {n_total} 张中抽取了 {len(pairs)} 对，输出到 {out_root_dir}")
     return len(pairs)

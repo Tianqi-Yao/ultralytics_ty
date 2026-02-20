@@ -2,12 +2,15 @@
 from __future__ import annotations
 
 import json
+import logging
 from copy import deepcopy
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Tuple
 
 import cv2
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -138,7 +141,7 @@ def export_labeled_tiles_from_coco(
 
         img = cv2.imread(str(img_path))
         if img is None:
-            # keep behavior minimal: skip unreadable
+            logger.warning(f"无法读取图像，已跳过: {img_path}")
             continue
 
         h, w = img.shape[:2]
@@ -191,11 +194,13 @@ def export_labeled_tiles_from_coco(
     }
     out_json.write_text(json.dumps(new_coco, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    return {
+    result = {
         "source_images": len(images),
         "tiles": len(new_images),
         "annotations": len(new_annotations),
     }
+    logger.info(f"export_labeled_tiles_from_coco 完成: {result}")
+    return result
 
 
 def export_null_images_tiles_from_coco(
@@ -244,6 +249,7 @@ def export_null_images_tiles_from_coco(
 
         img = cv2.imread(str(img_path))
         if img is None:
+            logger.warning(f"无法读取图像，已跳过: {img_path}")
             continue
 
         h, w = img.shape[:2]
@@ -275,7 +281,9 @@ def export_null_images_tiles_from_coco(
 
                 kept_null_tiles += 1
 
-    return {
+    result = {
         "source_images": len(images),
         "null_tiles": kept_null_tiles,
     }
+    logger.info(f"export_null_images_tiles_from_coco 完成: {result}")
+    return result
