@@ -193,3 +193,4 @@ _ty/03_code/04_fiftyone/backup*
 _ty/00_pipeline/99_archive/*
 _ty/03_code/03_train_model/yolo11_hbb_old/archives
 _ty/03_code/03_train_model/yolo11_hbb_old/pred*
+output/*
