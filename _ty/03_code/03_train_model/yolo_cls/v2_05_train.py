@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 # 配置
 # ========================
 
-PROJECT_NAME = "swd_cls_v2_deployment"
+PROJECT_NAME = "swd_cls_v3_deployment"
 
 DATASETS = [
     "/workspace/_ty/03_code/03_train_model/yolo_cls/data_v2/split_0.8_0.2",
@@ -66,7 +66,7 @@ def main():
                         project=f"output/{PROJECT_NAME}_noAug_seed42",
                         name=f"{ds_name}_{model_file}_b{batch}",
 
-                        # 关闭所有数据增强（部署推理时无增强，训练保持一致）
+                        # 增强策略：保留翻转；关闭几何变换；hsv 模拟光照域偏移
                         degrees=0.0,
                         scale=0.0,
                         shear=0.0,
@@ -75,7 +75,10 @@ def main():
                         cutmix=0.0,
                         erasing=0.0,
                         flipud=0.0,
-                        fliplr=0.5,   # 保留左右翻转（SWD 黑点左右对称）
+                        fliplr=0.5,      # 左右翻转（SWD 黑点左右对称）
+                        hsv_h=0.05,      # 色调轻微扰动
+                        hsv_s=0.3,       # 饱和度扰动（模拟光照变化）
+                        hsv_v=0.4,       # 亮度扰动（模拟曝光差异）
 
                         seed=42,
                         deterministic=True,

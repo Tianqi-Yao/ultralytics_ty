@@ -18,6 +18,8 @@ from pathlib import Path
 import logging
 
 import fiftyone as fo
+import cv2
+import numpy as np
 from PIL import Image
 from ultralytics import YOLO
 
@@ -61,15 +63,27 @@ DEVICE     = 0    # GPU id，CPU 用 "cpu"
 # ========================
 
 
+def apply_clahe(pil_img: Image.Image, clip_limit: float = 2.0, tile_size: int = 8) -> Image.Image:
+    """CLAHE 自适应直方图均衡化：增强局部对比度，让黑点在不同光照下都更突出。"""
+    img = np.array(pil_img.convert("RGB"))
+    lab = cv2.cvtColor(img, cv2.COLOR_RGB2LAB)
+    clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=(tile_size, tile_size))
+    lab[:, :, 0] = clahe.apply(lab[:, :, 0])
+    result = cv2.cvtColor(lab, cv2.COLOR_LAB2RGB)
+    return Image.fromarray(result)
+
+
 def make_clf_predict_fn(model: YOLO, device) -> callable:
     """
     包装 YOLO 分类器，返回符合 classify_and_filter_sample 接口的函数。
+    推理前先做 CLAHE 预处理，与训练时保持一致。
     输入：PIL Image 列表
     输出：[(label, score), ...] 列表
     """
     def predict(crops: list[Image.Image]) -> list[tuple[str, float]]:
+        crops_clahe = [apply_clahe(c) for c in crops]
         results = model.predict(
-            source=crops,
+            source=crops_clahe,
             device=device,
             verbose=False,
             imgsz=224,   # 与训练时保持一致
