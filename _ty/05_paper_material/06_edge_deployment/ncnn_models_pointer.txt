@@ -1,0 +1,9 @@
+# ncnn_models 指针 (未复制, 体积过大)
+
+原始路径: /home/tianqi/D/01_Projects/01_swd/02_code/pipeline/ultralytics_ty/_ty/00_pipeline/06_rpi/convert/ncnn_models
+体积: 437 M
+内容摘要: NCNN 后端导出的 *.param + *.bin 二进制文件 (fp32 / fp16 / 历史多版本)
+访问方式: ls <原始路径>
+最后核实日期: 2026-04-09
+
+# 如需重新导出, 使用 paper1/04_results/4d_edge_computing/scripts/ncnn_quantize_and_export.sh

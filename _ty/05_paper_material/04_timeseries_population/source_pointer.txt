@@ -1,0 +1,23 @@
+# 04_timeseries_population 源指针
+# 用途: 论文 §3.3 生长季种群动态重建 (图 7 / 图 8 数据源)
+
+原始路径: /home/tianqi/D/01_Projects/01_swd/02_code/pipeline/ultralytics_ty/_ty/00_pipeline/03_current_run_one
+体积: 25 M
+内容摘要:
+  - notebooks/: 4 个预处理与时序聚合 notebook
+      01 - 图像文件名时间戳 & 每日对焦统计
+      02 - 传感器 CSV 预处理 & 日聚合 & 温湿度可视化
+      03 - fiftyone 预测导出 & 时间-对焦聚合 & 多焦距融合
+      11 - GT vs SWD 对比
+  - csv/:
+      ms2_0605_0923.csv            — ms2 站点 2024 生长季原始时序
+      ms2_0605_0923_proc.csv       — 同上经预处理
+      2025_north_v1__lloyd2 / southfarm1 / southfarm2 _count_over_time_*.csv
+                                    — 2025 跨年验证 3 站点时序
+      table_3_per_timepoint_fused_max.csv
+                                    — 逐时间点多焦距融合后的 SWD 计数 (§3.3 主时序数据源)
+                                    — 原路径: _deploy_exports/sahi_null_run_whole_rawData_v5/sahi_null_run_whole_rawData_v5_ms2_0605_0923/pred_yolo11n_20pct_null_images_add_rawData_batch_8_final/
+访问方式: cd <原始路径> && jupyter lab
+最后核实日期: 2026-04-09
+
+# 未复制: _deploy_exports/ (原始预测逐图导出, 体积较大, 仅抽取了 table_3)

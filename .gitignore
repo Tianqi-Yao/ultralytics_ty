@@ -195,3 +195,4 @@ _ty/03_code/03_train_model/yolo11_hbb_old/archives
 _ty/03_code/03_train_model/yolo11_hbb_old/pred*
 output/*
 _ty/03_code/04_fiftyone/tools/export
+_ty/04_final_pipeline

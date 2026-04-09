@@ -1,0 +1,6 @@
+model,format,device,mAP@0.5,avg_ms,std_ms,fps,peak_mem_mb,model_size_mb,detections,tiled_runs,tile_size,overlap,conf,nms_iou
+yolo11n_b8,pt,cuda,0.979,223.3,3.4,4.479,0.0,5.23,10,10,640,0.2,0.7,0.5
+yolo11s_b4,pt,cuda,0.974,225.5,4.6,4.434,0.0,18.31,11,10,640,0.2,0.7,0.5
+yolo11m_b16,pt,cuda,0.985,365.0,7.9,2.74,0.0,38.65,12,10,640,0.2,0.7,0.5
+yolo11l_b4,pt,cuda,0.982,497.4,17.7,2.01,0.0,48.84,11,10,640,0.2,0.7,0.5
+yolo11x_b8,pt,cuda,0.978,753.1,24.9,1.328,0.0,109.11,11,10,640,0.2,0.7,0.5

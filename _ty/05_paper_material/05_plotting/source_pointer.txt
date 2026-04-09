@@ -1,0 +1,11 @@
+# 05_plotting 源指针
+# 用途: 论文所有主图的绘图 notebook
+
+原始路径: /home/tianqi/D/01_Projects/01_swd/02_code/pipeline/ultralytics_ty/_ty/00_pipeline/02_current_batch_run_model/06_draw_plot
+体积: 68 K (已全量复制)
+内容摘要:
+  - 34_draw_plot.ipynb: 主绘图 notebook (14 变体柱状图 / 散点回归 / Bland-Altman / 时序)
+  - 37_draw_plot.ipynb: 备用版本
+  - ty_plot_tools/: 绘图工具代码 (样式配置 / 辅助函数)
+访问方式: cd <原始路径> && jupyter lab
+最后核实日期: 2026-04-09

@@ -1,0 +1,8 @@
+# 01_data 指针 (未复制, 体积 207 G)
+
+原始路径: /home/tianqi/D/01_Projects/01_swd/02_code/pipeline/ultralytics_ty/_ty/01_data
+体积: 207 G
+内容摘要: SWD 粘虫板原始高分辨率图像数据集 + 标注 (8,695 张图, 7,836 个标注实例, 含 20% 空图)
+          6 个站点 (含 ms1, ms2, southfarm1, southfarm2, lloyd2 等), 完整 2024 生长季 + 2025 跨年
+访问方式: ls <原始路径>
+最后核实日期: 2026-04-09

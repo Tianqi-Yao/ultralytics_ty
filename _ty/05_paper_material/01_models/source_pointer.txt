@@ -1,0 +1,11 @@
+# 01_models 源指针
+# 用途: 论文 §3.1 / §3.4 使用的 14 个 YOLO11 变体训练权重
+
+原始路径: /home/tianqi/D/01_Projects/01_swd/02_code/pipeline/ultralytics_ty/_ty/02_fine-tuned_checkpoint/best_models/04_swd_hbb/null_image_trained_final_checkpoint
+体积: 1.7 G (含 _v1 / _v2 备份, 本目录只复制了 *_final.pt 主版本共 552 MB)
+内容摘要:
+  - 14 个 YOLO11 变体 (n/s/m/l/x × batch 4/8/16, 排除 x_batch_16)
+  - 每个变体有 3 份: *_final.pt / *_final_v1.pt / *_final_v2.pt (重复训练的不同 seed 备份)
+  - manifest.csv 记录每个 pt 的超参与训练元信息
+访问方式: ls <原始路径>
+最后核实日期: 2026-04-09

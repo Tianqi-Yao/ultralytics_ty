@@ -1,0 +1,7 @@
+# 03_code 指针 (未复制, 体积 149 G)
+
+原始路径: /home/tianqi/D/01_Projects/01_swd/02_code/pipeline/ultralytics_ty/_ty/03_code
+体积: 149 G
+内容摘要: 杂项代码备份 (历史实验脚本 / 中间产物 / 开发分支)
+访问方式: ls <原始路径>
+最后核实日期: 2026-04-09

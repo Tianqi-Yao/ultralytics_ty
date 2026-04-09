@@ -1,0 +1,12 @@
+# 03_counting_validation 源指针
+# 用途: 论文 §3.2 计数精度验证 (R² / MAE / RMSE / Bland-Altman 数据源)
+
+原始路径: /home/tianqi/D/01_Projects/01_swd/02_code/pipeline/ultralytics_ty/_ty/00_pipeline/02_current_batch_run_model/04_evaluate_Real-world_Performance_in_fiftyone
+体积: 44 K (已全量复制)
+内容摘要:
+  - evaluation_sahi_null_v2_ms1_0605-0621_40_ok.xlsx: 36 张 ms2 站点田间图像的 AI 自动计数 vs 人工巡检计数对比 (conf=0.40, 模型 yolo11n_batch_8_final)
+    ⚠ 文件名含 "ms1" 但实际数据为 ms2 站点
+  - evaluation_to_excel.ipynb: 从 fiftyone 数据库导出为 xlsx 的 notebook
+  - ty_eval_tools/: 评估工具代码 (fo_eval.py)
+访问方式: ls <原始路径>
+最后核实日期: 2026-04-09

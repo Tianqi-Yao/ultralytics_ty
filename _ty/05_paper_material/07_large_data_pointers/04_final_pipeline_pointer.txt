@@ -1,0 +1,7 @@
+# 04_final_pipeline 指针 (未复制, 体积 143 G)
+
+原始路径: /home/tianqi/D/01_Projects/01_swd/02_code/pipeline/ultralytics_ty/_ty/04_final_pipeline
+体积: 143 G
+内容摘要: Finalized pipeline 产出 (端到端运行的中间结果与输出缓存)
+访问方式: ls <原始路径>
+最后核实日期: 2026-04-09
